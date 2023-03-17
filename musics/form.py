@@ -10,7 +10,7 @@ class AddMusicForm(forms.ModelForm):
         fields=[
             'title',
             'artiste',
-           
+            
             'audio_file',
             'cover_image',
         ]

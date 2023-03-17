@@ -1,18 +1,14 @@
 {% load static %}
-{% static "images" as imagePath %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>{% block Title %}Lively Healthcare Web application{% endblock Title %}</title>
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<meta name="author" content="">
-		<link rel="stylesheet" href="https: //cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 		<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 		<meta charset="utf-8">
@@ -24,24 +20,97 @@
 			integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
 		<!-- jQuery -->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	</head>
 
-	<body class='relative pt-8'>
-		<nav class='p-4 bg-black bg-opacity-30 fixed top-0 left-0 w-full z-50'>
-			<a href="{% url 'music:home_page' %}">
-				<h2 class='text-white text-xl font-semibold'>
-					<span class='text-green-800 font-black'>Lively </span> 
-				</h2>
-			</a>
-		</nav>
-{%block scripts%}
-{%endblock scripts%}
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
 
-		{% block content %}
-		
-		{% endblock content %}
+<body style="background-color: #D1E2C4;">
 
+    
+    {% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <figure class="figure m-1 px-2">
+                <img src="{% static 'images/logo.jpg' %}" class="figure-img img-fluid rounded" alt="logo" style="width: 70px;height: 65px;">
+                </figure>
+                
+            <a class="navbar-brand" href="#" style="color: #117660;">LIVELY HEALTHCARE WEB APPLICATION</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/hom" >Journal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/create">Create</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="/user_logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="/main">Home</a>
+                    </li>
+                </ul>
+            
+            </div>
+        </div>
 
-	</body>
+    {% else %}
+    
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <figure class="figure m-1 px-2">
+                 
+                <img src="{% static 'images/logo.jpg' %}" class="figure-img img-fluid rounded" alt="logo"
+                    style="width: 70px;height: 65px;">
+            </figure>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">LIVELY HEALTHCARE WEB APPLICATION</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/user_signup">SignUp</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/user_login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  aria-current="page" href="/user_np">NewPassword</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+        {% endif %}
+    </nav>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+    {%block scripts%}
+    {%endblock scripts%}
+    {% block content %}
+    {% endblock %}
+</body>
 
 </html>

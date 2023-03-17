@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login Page {% endblock %}
+
+{% block content %}
+
+<center>
+            <figure class="figure m-1 px-2">
+                <img src="{% static 'logo.jpg' %}" class="figure-img img-fluid rounded" alt="logo"
+                    style="width: 70px;height: 65px;">
+            </figure>
+    <h1> Login </h1>
+<form method="POST" class="row g-3 needs-validation" novalidate>
+{% csrf_token %}
+<div style="width: 1500px;">
+    <div class="col-md-4">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="un" placeholder="Enter your username" name="un1" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+<br>
+    <div class="col-md-4">
+        <label for="pass1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="pass1" placeholder="Enter Password" name="pass1" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <br>
+
+<div class="col-12">
+    <button class="btn btn-primary" type="submit">Login</button>
+</div>
+</div>
+    
+</form>
+</center>
+{{ msg }}
+{% endblock %}

@@ -3,10 +3,10 @@
 {% block title %} Charts {% endblock %}
 
 {%block scripts%}
-<canvas id="myChart" width="200px" height="80px"></canvas>
+<canvas id="myChart" width="200px" height="70px"></canvas>
 <script>
-    var d1 = {{ labels| safe}};
-    var d2 = {{ data| safe}};
+    var d1 = {{labels|safe}};
+    var d2 = {{data|safe}};
     const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'bar',

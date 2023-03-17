@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Task manager {% endblock %}
+
+{% block content %}
+
+<center>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="col-md-4">
+        <label for="Task" class="form-label" style="font-size:40px;font-family:'Segoe UI';color: #09323B;">Create Your Task List Here</label>
+        <input type="text" name="Task" class="form-control" id="Task" placeholder="Enter Task" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        </div>
+        <br>
+        <div class="col-12">
+            <button class="btn btn-success" type="submit">Create</button>
+        </div>
+    </form>
+    
+</div>
+
+</center>
+{% endblock %}

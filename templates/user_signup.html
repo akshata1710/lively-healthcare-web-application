@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Signup Page {% endblock %}
+
+{% block content %}
+
+<center>
+    <h1> Sign Up</h1>
+    <form method="POST" class="row g-3 needs-validation" novalidate>
+        {% csrf_token %}
+        <div style="width: 1500px;;">
+            
+            <div class="col-md-4">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="un" class="form-control" id="un" placeholder="Enter your username"  required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <br>
+            <div class="col-md-4">
+                <label for="pw1" class="form-label">Enter Password</label>
+                <input type="password" name="pw1" class="form-control" id="pw1" placeholder="Enter password"  required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <br>
+            <div class="col-md-4">
+                <label for="pw2" class="form-label">Confirm Password</label>
+                <input type="password"  name="pw2" class="form-control" id="pw2" placeholder="Enter password"  required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <br>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">SignUp</button>
+            </div>
+        </div>
+
+    </form>
+    
+    {{ msg }}
+</center>
+
+
+{% endblock %}
